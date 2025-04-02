@@ -1,0 +1,7 @@
+{
+  "name": "Gesturely",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

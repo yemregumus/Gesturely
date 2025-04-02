@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "628532681104",
+    "project_id": "gesturely-c7e64",
+    "storage_bucket": "gesturely-c7e64.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:628532681104:android:bcf1c8fc3e6a9ce42d7b15",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCKry55_QxQaIWNS0OZilsgA-mnhBcu8-k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
