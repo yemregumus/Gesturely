@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { LoginPage } from './pages/login/login.page'; // Import the standalone LoginPage component
+import { HomePage } from './home/home.page'; // Example, make sure to import the HomePage
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () =>
-      import('./home/home.module').then((m) => m.HomePageModule),
+    component: HomePage, // Update to use component instead of loadChildren
   },
   {
     path: 'welcome',
@@ -18,6 +19,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'welcome',
     pathMatch: 'full',
+  },
+  {
+    path: 'login',
+    component: LoginPage, // Directly use the LoginPage component here
   },
 ];
 

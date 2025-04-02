@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyBJDQak40lcQdDkekchidiVaebOEGCJ2jU',
+    authDomain: 'gesturely-c7e64.firebaseapp.com',
+    projectId: 'gesturely-c7e64',
+    storageBucket: 'gesturely-c7e64.firebasestorage.app',
+    messagingSenderId: '628532681104',
+    appId: '1:628532681104:web:cadd2f1d527b0eb02d7b15',
+    measurementId: 'G-H7HN47E6BP',
+  },
 };
 
 /*
