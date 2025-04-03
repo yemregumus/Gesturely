@@ -33,6 +33,31 @@ export class LoginPage {
     );
   }
 
+  register() {
+    this.router.navigate(['/register']);
+  }
+
+  forgotPassword() {
+    this.router.navigate(['/forgot-password']);
+  }
+
+  googleLogin() {
+    this.authService.googleLogin().subscribe(
+      (response) => {
+        console.log('Google login successful:', response);
+        this.isLoggedIn = true;
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        console.error('Google login error:', error);
+      }
+    );
+  }
+
+  phoneLogin() {
+    this.router.navigate(['/phone-login']);
+  }
+
   logout() {
     this.authService.logout().subscribe(
       () => {

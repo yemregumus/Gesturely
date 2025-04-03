@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { LoginPage } from './pages/login/login.page'; // Import the standalone LoginPage component
-import { HomePage } from './home/home.page'; // Example, make sure to import the HomePage
+import { LoginPage } from './pages/login/login.page';
+import { HomePage } from './home/home.page';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    component: HomePage, // Update to use component instead of loadChildren
+    component: HomePage,
+    canActivate: [AuthGuard],
   },
   {
     path: 'welcome',
@@ -22,7 +24,14 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginPage, // Directly use the LoginPage component here
+    component: LoginPage,
+  },
+  {
+    path: 'register',
+    loadChildren: () =>
+      import('./pages/register/register.module').then(
+        (m) => m.RegisterPageModule
+      ),
   },
 ];
 
