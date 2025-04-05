@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import firebase from 'firebase/compat/app';
+import { updateProfile } from 'firebase/auth';
 import { of as observableOf } from 'rxjs';
 
 @Injectable({
@@ -15,8 +16,20 @@ export class AuthService {
     return from(this.afAuth.signInWithEmailAndPassword(email, password));
   }
 
-  register(email: string, password: string) {
-    return from(this.afAuth.createUserWithEmailAndPassword(email, password));
+  register(email: string, password: string, username: string) {
+    return from(
+      this.afAuth
+        .createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          if (userCredential.user) {
+            return updateProfile(userCredential.user, {
+              displayName: username,
+            }).then(() => userCredential.user);
+          } else {
+            throw new Error('User creation failed');
+          }
+        })
+    );
   }
 
   googleLogin() {

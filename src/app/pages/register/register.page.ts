@@ -15,6 +15,7 @@ import { Routes, RouterModule } from '@angular/router';
   imports: [IonicModule, CommonModule, FormsModule, RouterModule],
 })
 export class RegisterPage {
+  username: string = '';
   email: string = '';
   password: string = '';
   confirmPassword: string = '';
@@ -36,9 +37,16 @@ export class RegisterPage {
         this.email,
         this.password
       );
-      console.log('User registered:', userCredential);
-      this.showAlert('Success', 'Registration successful!');
-      this.router.navigate(['/home']);
+
+      if (userCredential.user) {
+        await userCredential.user.updateProfile({
+          displayName: this.username,
+        });
+
+        console.log('User registered with username:', this.username);
+        this.showAlert('Registration Successful!', `Welcome ${this.username}!`);
+        this.router.navigate(['/home']);
+      }
     } catch (error: any) {
       this.showAlert('Registration Failed', error.message);
     }

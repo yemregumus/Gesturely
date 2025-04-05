@@ -14,17 +14,22 @@ import { RouterModule } from '@angular/router';
   imports: [IonicModule, CommonModule, FormsModule, RouterModule],
 })
 export class HomePage {
-  constructor(private authService: AuthService, private router: Router) {} // Inject Router here
+  userEmail: string | null = null;
+  username: string | null = null;
+  constructor(private authService: AuthService, private router: Router) {
+    this.authService.getCurrentUser().subscribe((user) => {
+      this.userEmail = user?.email ?? null;
+      this.username = user?.displayName ?? null;
+    });
+  }
 
   logout() {
     this.authService.logout().subscribe(
       () => {
         console.log('Logged out successfully');
-        this.router.navigate(['/welcome']); // Use the injected Router
-        // clear cache
+        this.router.navigate(['/welcome']);
         localStorage.clear();
         sessionStorage.clear();
-        // Optionally, you can also clear any other authentication-related data
       },
       (error) => {
         console.error('Logout error:', error);

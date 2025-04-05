@@ -11,10 +11,20 @@
   }
 
   ion-list {
-    margin-top: 20px;
+    margin-top: 5cqw;
   }
 
   ion-item {
     --ion-item-background: transparent;
+  }
+
+  ion-button {
+    margin-top: 50px;
+    --background: var(--ion-color-primary);
+    --color: white;
+    --border-radius: 8px;
+    --padding-start: 20px;
+    --padding-end: 20px;
+    --padding-top: 10px;
   }
 }

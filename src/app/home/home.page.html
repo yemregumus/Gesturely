@@ -1,31 +1,40 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title> Blank </ion-title>
+  <ion-toolbar color="primary">
+    <ion-title>Gesturely</ion-title>
     <ion-buttons slot="end">
       <ion-button (click)="logout()">
-        <ion-icon name="log-out"></ion-icon>
+        <ion-icon name="log-out-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" class="ion-padding">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Welcome</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>
-      Start with Ionic
-      <a
-        target="_blank"
-        rel="noopener noreferrer"
-        href="https://ionicframework.com/docs/components"
-        >UI Components</a
-      >
-    </p>
+  <div class="home-container">
+    <h2>Welcome to Gesturely {{ username }}!</h2>
+    <p>Your smart gesture recognition assistant is ready to help.</p>
+
+    <ion-button expand="block" fill="outline" routerLink="/profile">
+      View Profile
+    </ion-button>
+
+    <ion-button
+      expand="block"
+      fill="solid"
+      color="secondary"
+      routerLink="/tutorial"
+    >
+      Start Gesture Tutorial
+    </ion-button>
+
+    <ion-button expand="block" color="danger" (click)="logout()">
+      Logout
+    </ion-button>
   </div>
 </ion-content>
