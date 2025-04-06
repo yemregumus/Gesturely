@@ -6,11 +6,7 @@ import { FooterComponent } from '../shared/footer/footer.component';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatButtonModule } from '@angular/material/button';
-import { MatCardModule } from '@angular/material/card';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { MaterialModule } from '../shared/material.module';
 
 @Component({
   selector: 'app-home',
@@ -22,11 +18,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     CommonModule,
     FormsModule,
     RouterModule,
-    MatIconModule,
-    MatDividerModule,
-    MatButtonModule,
-    MatCardModule,
-    MatToolbarModule,
+    MaterialModule,
     FooterComponent,
   ],
 })

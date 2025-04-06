@@ -1,24 +1,49 @@
+<ion-header [translucent]="true">
+  <mat-toolbar color="primary">
+    <span>Gesturely</span>
+    <span class="spacer"></span>
+  </mat-toolbar>
+</ion-header>
+
 <ion-content class="ion-padding welcome-screen">
   <div class="logo-container">
     <img src="assets/logo.png" alt="App Logo" class="logo" />
   </div>
+
   <h1>Welcome to Gesturely!</h1>
   <p>Your interactive app for learning sign language letters.</p>
 
-  <ion-list>
-    <ion-item>
-      <ion-icon name="book-outline" slot="start"></ion-icon>
-      <ion-label>Learn sign language step by step</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="game-controller-outline" slot="start"></ion-icon>
-      <ion-label>Take fun quizzes</ion-label>
-    </ion-item>
-    <ion-item>
-      <ion-icon name="stats-chart-outline" slot="start"></ion-icon>
-      <ion-label>Track your progress</ion-label>
-    </ion-item>
-  </ion-list>
+  <mat-card class="info-card">
+    <mat-list class="info-list">
+      <mat-list-item>
+        <div matLine>
+          <mat-icon matListIcon>menu_book</mat-icon>Learn sign language step by
+          step
+        </div>
+      </mat-list-item>
 
-  <ion-button expand="full" (click)="goToLogin()">Get Started</ion-button>
+      <mat-list-item>
+        <div matLine>
+          <mat-icon matListIcon>sports_esports</mat-icon>Take fun quizzes
+        </div>
+      </mat-list-item>
+
+      <mat-list-item>
+        <div matLine>
+          <mat-icon matListIcon>insights</mat-icon>Track your progress
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+
+  <button
+    mat-raised-button
+    color="primary"
+    class="get-started-btn"
+    (click)="goToLogin()"
+  >
+    Get Started
+  </button>
 </ion-content>
+
+<app-footer></app-footer>

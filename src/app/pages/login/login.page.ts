@@ -2,15 +2,23 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
-import { CommonModule } from '@angular/common'; // Import CommonModule for *ngIf
-import { FormsModule } from '@angular/forms'; // Import FormsModule for ngModel
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MaterialModule } from 'src/app/shared/material.module';
+import { FooterComponent } from 'src/app/shared/footer/footer.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule], // Add CommonModule and FormsModule
+  imports: [
+    IonicModule,
+    CommonModule,
+    FormsModule,
+    MaterialModule,
+    FooterComponent,
+  ],
 })
 export class LoginPage {
   email: string = '';
@@ -28,7 +36,6 @@ export class LoginPage {
       },
       (error) => {
         console.error('Login error:', error);
-        // Handle login errors
       }
     );
   }
