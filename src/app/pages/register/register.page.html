@@ -1,56 +1,89 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Register</ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true">
+  <mat-toolbar color="primary">
+    <span>Gesturely</span>
+    <span class="spacer"></span>
+  </mat-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <form (submit)="registerUser()">
-    <ion-item>
-      <ion-label position="floating">Email</ion-label>
-      <ion-input
-        type="email"
-        [(ngModel)]="email"
-        name="email"
-        required
-      ></ion-input>
-    </ion-item>
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="register-container">
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="App Logo" class="logo" />
+    </div>
 
-    <ion-item>
-      <ion-label position="floating">Username</ion-label>
-      <ion-input
-        type="text"
-        [(ngModel)]="username"
-        name="username"
-        required
-      ></ion-input>
-    </ion-item>
+    <mat-card class="register-card">
+      <form (submit)="registerUser()">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Username</mat-label>
+          <input
+            matInput
+            type="text"
+            [(ngModel)]="username"
+            name="username"
+            required
+          />
+        </mat-form-field>
 
-    <ion-item>
-      <ion-label position="floating">Password</ion-label>
-      <ion-input
-        type="password"
-        [(ngModel)]="password"
-        name="password"
-        required
-      ></ion-input>
-    </ion-item>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input
+            matInput
+            type="email"
+            [(ngModel)]="email"
+            name="email"
+            required
+          />
+        </mat-form-field>
 
-    <ion-item>
-      <ion-label position="floating">Confirm Password</ion-label>
-      <ion-input
-        type="password"
-        [(ngModel)]="confirmPassword"
-        name="confirmPassword"
-        required
-      ></ion-input>
-    </ion-item>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Password</mat-label>
+          <input
+            matInput
+            type="password"
+            [(ngModel)]="password"
+            name="password"
+            required
+          />
+        </mat-form-field>
 
-    <ion-button expand="full" type="submit">Register</ion-button>
-  </form>
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Confirm Password</mat-label>
+          <input
+            matInput
+            type="password"
+            [(ngModel)]="confirmPassword"
+            name="confirmPassword"
+            required
+          />
+        </mat-form-field>
 
-  <p class="text-center">
-    Already have an account?
-    <a routerLink="/login">Login here</a>
-  </p>
+        <button
+          mat-raised-button
+          color="primary"
+          class="full-width"
+          type="submit"
+        >
+          Register
+        </button>
+
+        <h4 class="text-center">OR</h4>
+
+        <mat-divider></mat-divider>
+        <button
+          mat-raised-button
+          color="accent"
+          class="full-width"
+          (click)="googleRegister($event)"
+        >
+          Continue with Google
+        </button>
+      </form>
+    </mat-card>
+
+    <p class="text-center">
+      Already have an account?
+      <a routerLink="/login">Login here</a>
+    </p>
+  </div>
 </ion-content>
+<app-footer></app-footer>

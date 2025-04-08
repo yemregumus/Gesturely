@@ -1,0 +1,51 @@
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  .logo-container {
+    .logo {
+      width: 120px;
+      height: auto;
+    }
+  }
+
+  mat-card.register-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #fff;
+  }
+
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  button {
+    margin-top: 1rem;
+    width: 100%;
+    font-weight: 600;
+  }
+
+  button.mat-raised-button {
+    height: 48px;
+  }
+
+  p.text-center {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+
+    a {
+      color: #3f51b5;
+      text-decoration: none;
+      font-weight: 500;
+    }
+  }
+}

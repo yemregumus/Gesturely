@@ -5,12 +5,19 @@ import { map } from 'rxjs/operators';
 import firebase from 'firebase/compat/app';
 import { updateProfile } from 'firebase/auth';
 import { of as observableOf } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private afAuth: AngularFireAuth) {}
+  private currentUserSubject = new BehaviorSubject<firebase.User | null>(null);
+  currentUser$ = this.currentUserSubject.asObservable();
+  constructor(private afAuth: AngularFireAuth) {
+    this.afAuth.authState.subscribe((user) => {
+      this.currentUserSubject.next(user);
+    });
+  }
 
   login(email: string, password: string) {
     return from(this.afAuth.signInWithEmailAndPassword(email, password));
@@ -67,12 +74,8 @@ export class AuthService {
     );
   }
 
-  getCurrentUser(): Observable<any> {
-    return this.afAuth.authState.pipe(
-      map((user) => {
-        return user;
-      })
-    );
+  getCurrentUser() {
+    return this.currentUser$;
   }
 
   getCurrentUserId(): Observable<string | null> {
@@ -109,6 +112,16 @@ export class AuthService {
 
   getUser(): Observable<any> {
     return this.afAuth.authState;
+  }
+
+  refreshUser() {
+    this.afAuth.currentUser.then((user) => {
+      if (user) {
+        user.reload().then(() => {
+          this.currentUserSubject.next(user);
+        });
+      }
+    });
   }
 }
 function of(): Observable<void> {
