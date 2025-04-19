@@ -28,7 +28,6 @@
 
   mat-form-field {
     width: 100%;
-    margin-bottom: 1rem;
   }
 
   button {
@@ -45,5 +44,21 @@
   button.mat-button {
     font-size: 0.9rem;
     text-transform: none;
+  }
+
+  .forgot-password-link {
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    justify-content: right;
+
+    align-items: right;
+    text-align: right;
+    cursor: pointer;
+    transition: text-decoration 0.3s;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }

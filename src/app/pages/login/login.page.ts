@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { MaterialModule } from 'src/app/shared/material.module';
 import { FooterComponent } from 'src/app/shared/footer/footer.component';
 
@@ -18,6 +19,7 @@ import { FooterComponent } from 'src/app/shared/footer/footer.component';
     FormsModule,
     MaterialModule,
     FooterComponent,
+    RouterModule,
   ],
 })
 export class LoginPage {
