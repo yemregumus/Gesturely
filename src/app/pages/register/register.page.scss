@@ -39,13 +39,23 @@
 
   p.text-center {
     margin-top: 1rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: #666;
 
     a {
-      color: #3f51b5;
+      font-size: 1rem;
+      color: #007bff;
       text-decoration: none;
-      font-weight: 500;
+      justify-content: right;
+
+      align-items: right;
+      text-align: right;
+      cursor: pointer;
+      transition: text-decoration 0.3s;
+
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 }
